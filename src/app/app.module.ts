@@ -5,20 +5,30 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatListModule} from '@angular/material';
+
+import { HttpClientModule } from '@angular/common/http';
+import { HappyformContainerComponent } from './happyform-container/happyform-container.component';
+import { FormServiceApi } from './services/formServiceApi';
+import { HappyformListformComponent } from './happyform-listform/happyform-listform.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HappyformContainerComponent,
+    HappyformListformComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatListModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [FormServiceApi],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
