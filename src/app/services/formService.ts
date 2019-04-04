@@ -9,7 +9,7 @@ const API_FORMS = 'FormAPI/';
 @Injectable({
     providedIn: 'root'
 })
-export class FormServiceApi {
+export class FormService {
     constructor(private http: HttpClient) { }
 
     getForms(): Observable<Array<Form>> {

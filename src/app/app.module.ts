@@ -9,7 +9,7 @@ import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatListModule} fro
 
 import { HttpClientModule } from '@angular/common/http';
 import { HappyformContainerComponent } from './happyform-container/happyform-container.component';
-import { FormServiceApi } from './services/formServiceApi';
+import { FormService } from './services/formService';
 import { HappyformListformComponent } from './happyform-listform/happyform-listform.component';
 
 @NgModule({
@@ -26,9 +26,9 @@ import { HappyformListformComponent } from './happyform-listform/happyform-listf
     MatButtonModule,
     MatCheckboxModule,
     MatListModule,
-    HttpClientModule,
+    HttpClientModule
   ],
-  providers: [FormServiceApi],
+  providers: [FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

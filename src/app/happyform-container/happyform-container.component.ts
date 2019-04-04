@@ -1,5 +1,5 @@
 import { Component, OnInit, Injectable } from '@angular/core';
-import { FormServiceApi } from '../services/formServiceApi';
+import { FormService } from '../services/formService';
 import { Form } from '../models/Form';
 
 @Component({
@@ -13,7 +13,7 @@ export class HappyformContainerComponent implements OnInit {
 
   forms: Array<Form> = new Array<Form>();
 
-  constructor(private formationService: FormServiceApi) { }
+  constructor(private formationService: FormService) { }
 
   ngOnInit() {
     this.formationService.getForms()
