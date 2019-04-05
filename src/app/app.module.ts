@@ -11,12 +11,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { HappyformContainerComponent } from './happyform-container/happyform-container.component';
 import { FormService } from './services/formService';
 import { HappyformListformComponent } from './happyform-listform/happyform-listform.component';
+import { RouterModule } from '@angular/router';
+import { ROUTES } from './app.routes';
+import { FormComponent } from './form/form.component';
+import { QuestionComponent } from './question/question.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HappyformContainerComponent,
-    HappyformListformComponent
+    HappyformListformComponent,
+    FormComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,8 @@ import { HappyformListformComponent } from './happyform-listform/happyform-listf
     MatButtonModule,
     MatCheckboxModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [FormService],
   bootstrap: [AppComponent]

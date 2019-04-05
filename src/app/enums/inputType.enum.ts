@@ -1,7 +1,8 @@
 export enum InputType {
-    inputText,
-    inputDate,
-    radioButton,
-    checkList,
-    selectOption
+    CheckBox,
+    Password,
+    Radio,
+    Text,
+    Date,
+    Select
 }

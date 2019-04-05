@@ -1,6 +1,7 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { FormService } from '../services/formService';
 import { Form } from '../models/Form';
+import { State } from '../enums/state.enum';
 
 @Component({
   selector: 'app-happyform-container',
@@ -17,6 +18,9 @@ export class HappyformContainerComponent implements OnInit {
 
   ngOnInit() {
     this.formationService.getForms()
-      .subscribe(result => this.forms = result);
+    .subscribe(result => {
+      this.forms = result.filter(r => r.State !== State.inProgress);
+      console.log(this.forms);
+    });
   }
 }

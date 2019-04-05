@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let question of questions">
+    <h2>{{question.Label}}</h2>
+
+    <mat-checkbox *ngFor="let response of question.Responses">{{response.Label}}</mat-checkbox>
+  </li>
+</ul>
