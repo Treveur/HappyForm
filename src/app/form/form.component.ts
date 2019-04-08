@@ -20,7 +20,10 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.formService.getForm(Number(this.id))
-      .subscribe(r => this.form = r);
+      .subscribe(r => {
+        console.log('subscribe');
+        this.form = r;
+      });
   }
 
 }

@@ -1,7 +1,64 @@
-<ul>
-  <li *ngFor="let question of questions">
-    <h2>{{question.Label}}</h2>
+<form (ngSubmit)="handleQuestion(FormUserResponses.value)"
+#FormUserResponses="ngForm">
 
-    <mat-checkbox *ngFor="let response of question.Responses">{{response.Label}}</mat-checkbox>
-  </li>
-</ul>
+  <div *ngFor="let question of questions">
+    <div [ngSwitch]="question.Type">
+      <label for=question.Label>{{question.Label}}</label>
+
+      <!-- Checkbox -->
+      <div *ngSwitchCase=0>
+        <mat-checkbox *ngFor="let response of question.Responses"
+        name=lol
+        [value]="response.Id"
+        ngModel>
+        {{response.Label}}
+      </mat-checkbox>
+      </div>
+
+      <!-- Radio -->
+      <div *ngSwitchCase=2>
+        <mat-radio-group >
+          <mat-radio-button *ngFor="let response of question.Responses"
+          [value]="response.Id"
+          name="mdr"
+          ngModel>
+            {{response.Label}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <!-- text -->
+      <div *ngSwitchCase=3>
+        <mat-form-field>
+          <mat-label>Your response</mat-label>
+          <input placeholder="Your response">
+        </mat-form-field>
+      </div>
+
+    </div>
+  </div>
+  <button type="submit" mat-button>Submit</button>
+</form>
+
+  <!-- <form (ngSubmit)="handleQuestion">
+
+  <label for="">{{question.Label}}</label>
+  <div [ngSwitch]="question.Type">
+
+    <div *ngSwitchCase="0">
+      <mat-checkbox *ngFor="let response of question.Responses">{{response.Label}}</mat-checkbox>
+    </div>
+
+    <div *ngSwitchCase="2">
+      <mat-radio-group>
+        <mat-radio-button *ngFor="let response of question.Responses" [value]="response.Id">{{response.Label}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <p *ngSwitchDefault>
+  </div>
+
+
+
+</form> -->

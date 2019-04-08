@@ -1,4 +1,4 @@
-<p>
-  {{form?.Title}}
-  <app-question [questions]="form?.Questions"></app-question>
-</p>
+<div *ngIf="form">
+  <h2>{{form.Title}}</h2>
+  <app-question [questions]="form.Questions"></app-question>
+<div>

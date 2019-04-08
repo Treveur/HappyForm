@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatListModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatListModule, MatRadioModule, MatInputModule} from '@angular/material';
 
 import { HttpClientModule } from '@angular/common/http';
 import { HappyformContainerComponent } from './happyform-container/happyform-container.component';
@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { ROUTES } from './app.routes';
 import { FormComponent } from './form/form.component';
 import { QuestionComponent } from './question/question.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,9 @@ import { QuestionComponent } from './question/question.component';
     MatButtonModule,
     MatCheckboxModule,
     MatListModule,
+    MatRadioModule,
+    MatInputModule,
+    FormsModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES)
   ],

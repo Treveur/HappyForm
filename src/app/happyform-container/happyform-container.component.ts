@@ -20,7 +20,7 @@ export class HappyformContainerComponent implements OnInit {
     this.formationService.getForms()
     .subscribe(result => {
       this.forms = result.filter(r => r.State !== State.inProgress);
-      console.log(this.forms);
+      // console.log(this.forms);
     });
   }
 }
