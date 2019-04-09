@@ -16,6 +16,7 @@ import { ROUTES } from './app.routes';
 import { FormComponent } from './form/form.component';
 import { QuestionComponent } from './question/question.component';
 import { FormsModule } from '@angular/forms';
+import { StatComponent } from './stat/stat.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     HappyformContainerComponent,
     HappyformListformComponent,
     FormComponent,
-    QuestionComponent
+    QuestionComponent,
+    StatComponent
   ],
   imports: [
     BrowserModule,
