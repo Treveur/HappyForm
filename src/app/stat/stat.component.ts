@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormService } from '../services/formService';
+import { ActivatedRoute } from '@angular/router';
+import { Form } from '../models/Form';
 
 @Component({
   selector: 'app-stat',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatComponent implements OnInit {
 
-  constructor() { }
+  id: string;
+  form: Form;
+
+  constructor(private formService: FormService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.formService.getForm(Number(this.id))
+      .subscribe(r => {
+        // console.log('subscribe');
+        this.form = r;
+      });
   }
 
 }
