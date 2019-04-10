@@ -1,27 +1,27 @@
 <form (ngSubmit)="handleQuestion(FormUserResponses.value)"
 #FormUserResponses="ngForm">
 
-  <div *ngFor="let question of questions">
+  <div *ngFor="let question of questions;">
     <div [ngSwitch]="question.Type">
       <label for=question.Label>{{question.Label}}</label>
 
       <!-- Checkbox -->
       <div *ngSwitchCase=0>
         <mat-checkbox *ngFor="let response of question.Responses"
-        name=lol
-        [value]="response.Id"
-        ngModel>
-        {{response.Label}}
-      </mat-checkbox>
+          name=lol
+          [value]="response.Id"
+          [(ngModel)]="UserResponses[response.Id].Input">
+          {{response.Label}}
+        </mat-checkbox>
       </div>
 
       <!-- Radio -->
       <div *ngSwitchCase=2>
         <mat-radio-group >
           <mat-radio-button *ngFor="let response of question.Responses"
-          [value]="response.Id"
-          name="mdr"
-          ngModel>
+            [value]="response.Id"
+            name="mdr"
+            [(ngModel)]="UserResponses[response.Id].Input">
             {{response.Label}}
           </mat-radio-button>
         </mat-radio-group>
@@ -29,9 +29,8 @@
 
       <!-- text -->
       <div *ngSwitchCase=3>
-        <mat-form-field>
-          <mat-label>Your response</mat-label>
-          <input placeholder="Your response">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Your response" [(ngModel)]="UserResponses[question.Responses[0].Id].Input" name="ptdr">
         </mat-form-field>
       </div>
 
