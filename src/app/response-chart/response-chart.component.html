@@ -1,0 +1,36 @@
+<div *ngFor="let question of questions">
+  <!-- Question -->
+  <h2>{{question.Label}}</h2>
+  <div *ngFor="let response of question.Responses">
+    <!-- Response -->
+    <p>{{response.Label}}
+
+      <!-- Check if the question is a checkbox or a radio type -->
+      <ng-container *ngIf="question.Type === 0 || question.Type === 2; else elseTemplate">
+
+        <span *ngFor="let userResponse of response.UserResponses">
+          <ng-container *ngIf="userResponse.Input === 'true'; else elseTemplate1">
+            
+            <!-- If response.UserResponses.length = 1 display réponse else réponses -->
+            <ng-container *ngIf="response.UserResponses.length === 1; else multipleResponse">
+                ({{response.UserResponses.length}} réponse / {{response.UserResponses.length}})
+            </ng-container>
+            <ng-template #multipleResponse>
+                ({{response.UserResponses.length}} réponses / {{response.UserResponses.length}})
+            </ng-template>
+
+          </ng-container>
+          <ng-template #elseTemplate1>
+            ( 0 réponse )
+          </ng-template>
+        </span>
+
+      </ng-container>
+      <ng-template #elseTemplate>
+        {{userResponse.Input}}
+      </ng-template>
+      <mat-progress-bar mode="determinate" value="20"></mat-progress-bar>
+    </p>
+  </div>
+
+</div>

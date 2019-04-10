@@ -1,3 +1,4 @@
-<p>
-  stat works!
-</p>
+<div *ngIf="form">
+  <h1>{{form.Title}}</h1>
+  <app-response-chart [questions] = "form.Questions"></app-response-chart>
+</div>
