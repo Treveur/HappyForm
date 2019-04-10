@@ -63,12 +63,9 @@ export class QuestionComponent implements OnInit, OnChanges {
       }
     });
     // On envoie les donnée
-    console.log('Form value', this.UserResponses);
+    // console.log('Form value', this.UserResponses);
     Object.keys(this.UserResponses).forEach(key => {
       this.userResponseService.postUserResponse(this.UserResponses[key]);
-      // .subscribe(r => {
-      //   console.log('send Success');
-      // });
     });
     // On change de page
     this.router.navigate([PATH_HOME]);

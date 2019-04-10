@@ -22,7 +22,7 @@ export class UserResponseService {
             })*/;
     }
 
-    postUserResponse(userResp: UserResponse): Observable<UserResponse> {
-        return this.http.post<UserResponse>(`${API_BASE_URL}${API_FORMS}`, userResp);
+    postUserResponse(userResp: UserResponse) {
+        this.http.post<UserResponse>(`${API_BASE_URL}${API_FORMS}`, userResp);
     }
 }
